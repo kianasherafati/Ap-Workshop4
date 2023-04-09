@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class Voting {
     private int type;
@@ -48,5 +45,20 @@ public class Voting {
 
         String selectedChoice = getChoices().get(new Random().nextInt() % getChoices().size());
         choices.get(selectedChoice).add(new Vote(person, "2023/4/9"));
+    }
+
+    public void printResult(){
+        ArrayList<String>_choices = getChoices();
+        for (String choice : _choices){
+            Iterator<Vote> votes = choices.get(choice).iterator();
+            ArrayList<Vote> submittedVotes = new ArrayList<>();
+            while (votes.hasNext()){
+                submittedVotes.add(votes.next());
+            }
+            System.out.println("\tChoice "+ choice + "\n" + submittedVotes);
+        }
+    }
+    public  void printVoters(){
+        System.out.println(voters);
     }
 }
