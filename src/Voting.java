@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Random;
 
 public class Voting {
     private int type;
@@ -41,8 +42,11 @@ public class Voting {
         }
     }
 
-    public void Vote(Person person){
+    public void Vote(Person person) {
         if (!voters.contains(person))
             voters.add(person);
+
+        String selectedChoice = getChoices().get(new Random().nextInt() % getChoices().size());
+        choices.get(selectedChoice).add(new Vote(person, "2023/4/9"));
     }
 }
