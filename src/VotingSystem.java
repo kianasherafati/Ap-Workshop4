@@ -41,4 +41,16 @@ public class VotingSystem {
       votingList.add(new Voting(type, question, isAnonymous));
    }
 
+   void printResult(int index){
+      votingList.get(index).printResult();
+   }
+
+   void printVoters(int index){
+      votingList.get(index).printVoters();
+   }
+
+   void printVoting(int index){
+      System.out.println("Voting " + index + ": \n" + votingList.get(index));
+   }
+
 }
